@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dsc"
+        android:id="@+id/img"
+        android:foregroundGravity="center_horizontal"
+        android:layout_marginLeft="130dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img"
+        android:id="@+id/t1"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif"
+        android:text="Developer student Club is a community where evryone is welcome We help Students gap between theory and practice and develop there knowledge by provding a peer-to-peer learning environment by conducting workshops,studyjams,and building solutions for local business.Developer Student Club is a Program supported by Google Developers"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="View dscsastra.com"
+        android:id="@+id/site"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:textAlignment="center"
+        android:layout_below="@+id/t1"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="100dp"
+        android:textColor="#0000EE"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/boxtext"
+        android:gravity="center_horizontal" />
+    </RelativeLayout>
+
+</FrameLayout>
