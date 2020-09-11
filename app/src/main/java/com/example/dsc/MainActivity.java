@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawer,toolbar,R.string.open_navigation_drawer,R.string.close_navigation_drawer);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new AboutFragment()).commit();
         nav.setCheckedItem(R.id.home);
     }
 

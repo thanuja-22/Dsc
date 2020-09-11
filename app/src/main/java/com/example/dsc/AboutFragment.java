@@ -35,7 +35,7 @@ public class AboutFragment extends Fragment {
 
         ArrayList<ExampleItem> a1= null;
         try {
-            a1 = com.example.dscsastra.QueryUtils.extractFeaturesFromJson(JSON_STRING);
+            a1 = com.example.dsc.QueryUtils.extractFeaturesFromJson(JSON_STRING);
         } catch (JSONException e) {
             e.printStackTrace();
         }
