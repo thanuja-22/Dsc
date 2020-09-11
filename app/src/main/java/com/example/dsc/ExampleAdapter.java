@@ -15,13 +15,21 @@ public class ExampleAdapter extends RecyclerView.Adapter <ExampleAdapter.Example
 
     private ArrayList<ExampleItem> e1;
     int itemresoruce;
-    Context context;
+    AboutFragment.NewsAsyncTask context;
 
 
 
 
     public ExampleAdapter(ArrayList<ExampleItem> a1) {
         e1=a1;
+    }
+
+
+
+    public ExampleAdapter(AboutFragment.NewsAsyncTask newsAsyncTask, int example_view, ArrayList<ExampleItem> exampleItems) {
+      this.context=newsAsyncTask;
+      this.itemresoruce=example_view;
+      e1=exampleItems;
     }
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
@@ -31,10 +39,7 @@ public class ExampleAdapter extends RecyclerView.Adapter <ExampleAdapter.Example
             t1=itemView.findViewById(R.id.adobe);
         }
     }
-    public ExampleAdapter(ArrayList<ExampleItem> examplelist,Context context){
-        e1=examplelist;
-        this.context=context;
-    }
+
     @NonNull
     @Override
     public ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

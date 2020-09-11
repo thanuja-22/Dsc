@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ public class AboutFragment extends Fragment {
     private RecyclerView mrecyclerview;
     private RecyclerView.Adapter madapter;
     private RecyclerView.LayoutManager mlayoutManager;
-    public static final String JSON_STRING="{\"event_titles\":[\"Adobe XD Scratchclass - Introduction\",\"Latest Innovation and Trends in Flutter\",\"Discuss with DSC - Blockchain and Pi cryptocurrency\",\"Discuss with DSC - Data Engineering with Spark using Databricks\",\"Free Practical Cloud course\",\"DeveLup Series - Machine Learning Novice to Jarvis\",\"DeveLup Series - Problem Solving with Design Thinking\",\"DeveLup Series - Touring google Cloud\",\"DeveLup Series - Unboxing Mixed Reality\",\"DeveLup Series - Flutter Zero to Hero\",\"DeveLup Series - Kickstart with Firebase\",\"DeveLup Series - Graphic Designing - Intermediate\",\"DeveLup Series - Introduction to JavaScript\",\"DeveLup Series - Getting started with LaTeX\",\"DeveLup Series Launch\"]}";
+    public static final String JSON_STRING="https://wayhike.com/dsc/demo_app_api.php";
 
     public AboutFragment() {
         // Required empty public constructor
@@ -45,9 +46,32 @@ public class AboutFragment extends Fragment {
         madapter=new ExampleAdapter(a1);
         mrecyclerview.setLayoutManager(mlayoutManager);
         mrecyclerview.setAdapter(madapter);
+        NewsAsyncTask n1=new NewsAsyncTask();
+        n1.execute(JSON_STRING);
 
 
         return rootView;
+    }
+    class NewsAsyncTask extends AsyncTask<String,Void,ArrayList<ExampleItem>>{
+
+        @Override
+        protected ArrayList<ExampleItem> doInBackground(String... strings) {
+            ArrayList<ExampleItem> a1=new ArrayList<>();
+            try {
+                a1=QueryUtils.fetchNews(JSON_STRING);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Log.e("AboutFragment","msg"+a1);
+            return a1;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<ExampleItem> exampleItems) {
+            madapter = new ExampleAdapter(this, R.layout.example_view, exampleItems);
+            mrecyclerview.setAdapter(madapter);
+            super.onPostExecute(exampleItems);
+        }
     }
 
 }
